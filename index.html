@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular</title>
+        <!--<link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">        -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>-->
+    </head>
+    <body data-ng-app="app" data-ng-cloak>
+        <div data-ng-controller="appController">
+            
+            <div layout="row" layout-align="center">
+                <md-button class="md-raised md-primary" data-ng-click="getInfo('main')">Main news</md-button>
+                <md-button class="md-raised md-primary" data-ng-click="getInfo('politika')">Politics</md-button>
+                <md-button class="md-raised md-primary" data-ng-click="getInfo('society')">Events</md-button>
+                <md-button class="md-raised md-primary" data-ng-click="getInfo('sport')">Sport</md-button>
+            </div>
+            
+            <div layout="row" layout-align="center">
+                <div layout-align="space-around">                
+                    <md-progress-circular ng-disabled="vm.activated" ng-hide="hide" md-diameter="96"></md-progress-circular>                
+                    <div id="content" data-ng-repeat="nws in news">
+                        <md-list-item class="secondary-button-padding" data-ng-click="goLink(nws.Url)">
+                            <p>{{hours(nws.DateCreated)}} {{nws.Title}} ({{nws.PartnerTitle}}) </p>
+                            <md-button class="md-secondary" data-ng-click="goLink(nws.Url)">More Info</md-button>
+                        </md-list-item>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <!-- Angular Material requires Angular.js Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
